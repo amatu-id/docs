@@ -1,0 +1,132 @@
+/* Document content — shared by editor, thumbnails, print and HTML export */
+
+@property --pg { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@property --sb { syntax: '*'; inherits: false; }
+@property --sa { syntax: '*'; inherits: false; }
+
+.doc-root {
+  font-family: var(--n-font, Arial), sans-serif;
+  font-size: var(--n-size, 11pt);
+  color: var(--n-color, #000);
+  font-weight: var(--n-weight, 400);
+  font-style: var(--n-style, normal);
+  line-height: var(--n-lh, 1.15);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  tab-size: 4;
+  counter-reset: fn;
+  background: transparent;
+  text-align: left;
+}
+.doc-root :is(p, h1, h2, h3, h4, h5, h6, li, blockquote, pre, ul, ol, table, hr, div, figure) {
+  margin-top: calc(var(--sb, var(--sbd, 0pt)) + var(--pg, 0px));
+  margin-bottom: var(--sa, var(--sad, 0pt));
+}
+.doc-root p { --sbd: var(--n-sb, 0pt); --sad: var(--n-sa, 0pt); }
+.doc-root :is(ul, ol) :is(ul, ol) { margin-top: 0; margin-bottom: 0; }
+.doc-root li > p { margin: 0; }
+.doc-root td > :is(p, ul, ol), .doc-root th > :is(p, ul, ol) { margin-top: 0; }
+
+.doc-root .title, .doc-root li.st-title { font-family: var(--title-font, var(--n-font, Arial)), sans-serif; font-size: var(--title-size, 26pt); color: var(--title-color, var(--n-color, #000)); font-weight: var(--title-weight, 400); font-style: var(--title-style, normal); line-height: var(--title-lh, var(--n-lh, 1.15)); --sbd: var(--title-sb, 0pt); --sad: var(--title-sa, 3pt); }
+.doc-root .subtitle, .doc-root li.st-subtitle { font-family: var(--subtitle-font, var(--n-font, Arial)), sans-serif; font-size: var(--subtitle-size, 15pt); color: var(--subtitle-color, #666); font-weight: var(--subtitle-weight, 400); font-style: var(--subtitle-style, normal); line-height: var(--subtitle-lh, var(--n-lh, 1.15)); --sbd: var(--subtitle-sb, 0pt); --sad: var(--subtitle-sa, 16pt); }
+.doc-root h1, .doc-root li.st-h1 { font-family: var(--h1-font, var(--n-font, Arial)), sans-serif; font-size: var(--h1-size, 20pt); color: var(--h1-color, var(--n-color, #000)); font-weight: var(--h1-weight, 400); font-style: var(--h1-style, normal); line-height: var(--h1-lh, var(--n-lh, 1.15)); --sbd: var(--h1-sb, 20pt); --sad: var(--h1-sa, 6pt); }
+.doc-root h2, .doc-root li.st-h2 { font-family: var(--h2-font, var(--n-font, Arial)), sans-serif; font-size: var(--h2-size, 16pt); color: var(--h2-color, var(--n-color, #000)); font-weight: var(--h2-weight, 400); font-style: var(--h2-style, normal); line-height: var(--h2-lh, var(--n-lh, 1.15)); --sbd: var(--h2-sb, 18pt); --sad: var(--h2-sa, 6pt); }
+.doc-root h3, .doc-root li.st-h3 { font-family: var(--h3-font, var(--n-font, Arial)), sans-serif; font-size: var(--h3-size, 14pt); color: var(--h3-color, #434343); font-weight: var(--h3-weight, 400); font-style: var(--h3-style, normal); line-height: var(--h3-lh, var(--n-lh, 1.15)); --sbd: var(--h3-sb, 16pt); --sad: var(--h3-sa, 4pt); }
+.doc-root h4, .doc-root li.st-h4 { font-family: var(--h4-font, var(--n-font, Arial)), sans-serif; font-size: var(--h4-size, 12pt); color: var(--h4-color, #666); font-weight: var(--h4-weight, 400); font-style: var(--h4-style, normal); line-height: var(--h4-lh, var(--n-lh, 1.15)); --sbd: var(--h4-sb, 14pt); --sad: var(--h4-sa, 4pt); }
+.doc-root h5, .doc-root li.st-h5 { font-family: var(--h5-font, var(--n-font, Arial)), sans-serif; font-size: var(--h5-size, 11pt); color: var(--h5-color, #666); font-weight: var(--h5-weight, 400); font-style: var(--h5-style, normal); line-height: var(--h5-lh, var(--n-lh, 1.15)); --sbd: var(--h5-sb, 12pt); --sad: var(--h5-sa, 4pt); }
+.doc-root h6, .doc-root li.st-h6 { font-family: var(--h6-font, var(--n-font, Arial)), sans-serif; font-size: var(--h6-size, 11pt); color: var(--h6-color, #666); font-weight: var(--h6-weight, 400); font-style: var(--h6-style, italic); line-height: var(--h6-lh, var(--n-lh, 1.15)); --sbd: var(--h6-sb, 12pt); --sad: var(--h6-sa, 4pt); }
+
+.doc-root b, .doc-root strong { font-weight: 700; }
+.doc-root a { color: #1155cc; text-decoration: underline; }
+.doc-root sup, .doc-root sub { font-size: 70%; line-height: 0; }
+.doc-root code { font-family: "Roboto Mono", "Courier New", monospace; font-size: .92em; background: rgba(0, 0, 0, .05); padding: 1px 4px; border-radius: 3px; }
+.doc-root blockquote { border-left: 3px solid #c6cbd1; padding: 2pt 0 2pt 12pt; color: #3c4043; font-style: italic; margin-left: 0; margin-right: 0; }
+.doc-root pre { font-family: "Roboto Mono", "Source Code Pro", "Courier New", monospace; font-size: 10pt; background: #f4f6f8; border: 1px solid #e3e7eb; padding: 8pt 10pt; border-radius: 4px; white-space: pre-wrap; line-height: 1.45; }
+.doc-root hr { border: 0; border-top: 1px solid #b7bcc2; height: 0; margin-top: calc(6pt + var(--pg, 0px)); margin-bottom: 6pt; }
+.doc-root hr.pb { border-top: 0; height: 0; margin: 0; overflow: visible; position: relative; }
+
+.doc-root ul, .doc-root ol { padding-left: 36px; }
+.doc-root li { padding-left: 4px; }
+.doc-root ul { list-style-type: disc; }
+.doc-root ul ul { list-style-type: circle; }
+.doc-root ul ul ul { list-style-type: square; }
+.doc-root ol { list-style-type: decimal; }
+.doc-root ol ol { list-style-type: lower-alpha; }
+.doc-root ol ol ol { list-style-type: lower-roman; }
+.doc-root li::marker { font-weight: 400; font-style: normal; }
+.doc-root ul.checklist { list-style: none; padding-left: 30px; }
+.doc-root ul.checklist > li { position: relative; padding-left: 0; }
+.doc-root ul.checklist > li::before {
+  content: ""; position: absolute; left: -24px; top: calc(.5lh - 8px); width: 14px; height: 14px; border-radius: 3px;
+  border: 1.5px solid #5f6368; background: #fff; box-sizing: border-box; cursor: pointer;
+}
+.doc-root ul.checklist > li[data-checked="true"]::before {
+  background: #1a73e8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='3.2' d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 12px no-repeat;
+  border-color: #1a73e8;
+}
+.doc-root ul.checklist > li[data-checked="true"] { color: #80868b; text-decoration: line-through; }
+
+.doc-root table { border-collapse: collapse; width: 100%; table-layout: fixed; }
+.doc-root td, .doc-root th { border: 1px solid #000; padding: 5pt; vertical-align: top; text-align: left; overflow-wrap: break-word; min-width: 18px; }
+.doc-root th { font-weight: 700; background: #f3f3f3; }
+.doc-root table.nb td, .doc-root table.nb th { border-color: transparent; }
+.doc-root td.cell-sel, .doc-root th.cell-sel { box-shadow: inset 0 0 0 999px rgba(26, 115, 232, .14); }
+
+.doc-root img { max-width: 100%; height: auto; vertical-align: bottom; }
+.doc-root img.wrap-l { float: left; margin: 4pt 12pt 4pt 0; }
+.doc-root img.wrap-r { float: right; margin: 4pt 0 4pt 12pt; }
+.doc-root img.break { display: block; margin: 6pt auto; }
+.doc-root .cols { column-gap: 36px; column-fill: balance; }
+.doc-root .cols > :first-child { margin-top: 0; }
+.doc-root p.dropcap::first-letter { float: left; font-size: 3.3em; line-height: .82; padding: 4px 8px 0 0; font-weight: 600; }
+
+.doc-root sup.fn { color: inherit; cursor: pointer; }
+.doc-root sup.fn::after { counter-increment: fn; content: counter(fn); }
+.doc-root .eq { display: inline-block; padding: 0 2px; vertical-align: middle; cursor: pointer; }
+.doc-root .eq:empty::before { content: attr(data-tex); font-family: "Cambria Math", "Times New Roman", serif; font-style: italic; }
+.doc-root .chip { display: inline-flex; align-items: center; gap: 3px; padding: 0 7px; border-radius: 12px; background: #e8f0fe; color: #174ea6; font-size: .94em; line-height: 1.45; cursor: pointer; white-space: nowrap; text-decoration: none; }
+.doc-root .bm { display: inline-block; width: 0; height: 1em; position: relative; vertical-align: text-top; }
+.doc-root .cite { color: inherit; }
+.doc-root .toc { margin-top: calc(6pt + var(--pg, 0px)); margin-bottom: 6pt; cursor: default; user-select: none; }
+.doc-root .toc p { margin: 0; display: flex; align-items: baseline; line-height: 1.5; }
+.doc-root .toc a { color: inherit; text-decoration: none; }
+.doc-root .toc[data-kind="links"] a { color: #1155cc; text-decoration: underline; }
+.doc-root .toc .lead { flex: 1; border-bottom: 1.5px dotted #9aa0a6; margin: 0 6px; transform: translateY(-3px); min-width: 12px; }
+.doc-root .toc .l2 { padding-left: 18pt; } .doc-root .toc .l3 { padding-left: 36pt; } .doc-root .toc .l4 { padding-left: 54pt; } .doc-root .toc .l5 { padding-left: 72pt; } .doc-root .toc .l6 { padding-left: 90pt; }
+.doc-root .toc-empty { color: #80868b; font-style: italic; }
+.doc-root .biblio p { padding-left: 36px; text-indent: -36px; margin-bottom: 6pt; }
+
+/* Review marks */
+.doc-root .cmt { background: rgba(255, 213, 0, .32); border-bottom: 2px solid rgba(240, 184, 0, .85); cursor: pointer; }
+.doc-root .cmt.on { background: rgba(255, 200, 0, .6); }
+.doc-root .cmt.resolved { background: none; border-bottom: 0; cursor: auto; }
+.doc-root ins.sg { color: var(--sgc, #188038); text-decoration: underline; text-decoration-color: currentColor; }
+.doc-root del.sg { color: var(--sgc, #c5221f); text-decoration: line-through; }
+.doc-root .sg.on { background: rgba(26, 115, 232, .12); }
+
+/* Editor-only affordances */
+.doc-body.show-np :is(p, h1, h2, h3, h4, h5, h6, li)::after { content: "¶"; color: #9aa0a6; font: 400 .85em Arial, sans-serif; margin-left: 1px; }
+.doc-body hr.pb::after { content: ""; display: none; }
+.doc-body.show-np hr.pb::after, .pageless .doc-body hr.pb::after { display: block; content: "Pemisah halaman"; text-align: center; font: 500 10px var(--ui, Arial); color: #80868b; border-top: 1px dashed #b0b6bd; padding-top: 2px; margin: 6px 0; letter-spacing: .04em; }
+.doc-body .bm::before { content: ""; position: absolute; left: -4px; top: -2px; width: 8px; height: 10px; background: #1a73e8; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 70%, 0 100%); }
+.doc-body .eq:hover, .doc-body .chip:hover { box-shadow: 0 0 0 1px #8ab4f8; border-radius: 4px; }
+.doc-body .toc { border-radius: 4px; outline: 1px solid transparent; outline-offset: 4px; transition: outline-color .15s; }
+.doc-body .toc:hover { outline-color: #c6dafc; }
+.doc-body img { cursor: default; }
+.doc-body img.sel { outline: 1.5px solid #1a73e8; }
+.doc-body .ph-empty::before { content: attr(data-ph); color: #9aa0a6; position: absolute; pointer-events: none; }
+
+html.paper-dark .sheet { background: #1f2023; }
+html.paper-dark .doc-body, html.paper-dark .sheets-fg { filter: invert(.92) hue-rotate(180deg); }
+html.paper-dark .doc-body img, html.paper-dark .doc-body .chip, html.paper-dark .sheets-fg img { filter: invert(1) hue-rotate(180deg); }
+html.paper-dark .ed .doc-body { caret-color: #000; }
+
+@media print {
+  html.paper-dark .sheet { background: #fff; }
+  html.paper-dark .doc-body, html.paper-dark .sheets-fg, html.paper-dark .doc-body img { filter: none !important; }
+  .doc-root .cmt, .doc-root .cmt.on { background: none; border: 0; }
+  .doc-root ins.sg { color: inherit; text-decoration: none; }
+  .doc-root del.sg { display: none; }
+  .doc-body .bm::before, .doc-body hr.pb::after { display: none !important; }
+  .doc-root td.cell-sel { box-shadow: none; }
+}

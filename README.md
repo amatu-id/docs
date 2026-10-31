@@ -1,6 +1,6 @@
 # Amatu Docs
 
-Pengolah dokumen di browser — https://liemyo.github.io/docs/
+Pengolah dokumen di browser — https://amatu-id.github.io/docs/
 
 Menggabungkan alur kerja Google Docs (menu, toolbar, komentar, mode menyarankan, histori versi, smart chip, garis besar) dengan fitur Microsoft Word (gaya paragraf yang dapat diubah, border & bayangan, drop cap, kolom, watermark, garis tepi halaman, kutipan & daftar pustaka, penggaris, mode baca, status bar).
 
